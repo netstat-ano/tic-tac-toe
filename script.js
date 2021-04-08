@@ -15,18 +15,34 @@ var screen = document.querySelector('.screen');
 screen.textContent = xo[random];
 let darkThemeButton = document.querySelector('.btn-theme');
 darkThemeButton.addEventListener('click', function(e){changeTheme(e)}, false);
-function tie(){
-    let divWin = document.createElement('div');
-    let screen = document.getElementsByClassName('screen');
-    divWin.textContent = "Remis";
-    screen[0].textContent = "";
-    screen[0].append(divWin);
+// function tie(){
+//     let divWin = document.createElement('div');
+//     let screen = document.getElementsByClassName('screen');
+//     divWin.textContent = "Remis";
+//     screen[0].textContent = "";
+//     screen[0].append(divWin);
+// }
+let nextRound = document.querySelector('.next-round');
+nextRound.addEventListener('click', nextRoundFunction, false);
+function nextRoundFunction(){
+    let areaElements = document.querySelectorAll('.area');
+    for(var i=0; i<areaElements.length; i++){
+        areaElements[i].classList.remove('completed');
+        areaElements[i].textContent = "";
+    }
+    let scr = document.getElementsByClassName('screen');
+    random =  Math.round(Math.random());
+    scr[0].textContent = xo[random];
 }
+
 function changeTheme(e){
     let body = document.getElementsByTagName('body');
     let btn = e.target;
     let area = document.querySelectorAll('.area');
+    let nxtRound = document.querySelector('.next-round');
     if(count%2===0){
+        nxtRound.classList.remove('btn-dark-theme');
+        nxtRound.classList.add('btn-light-theme');
         btn.classList.remove('btn-dark-theme');
         btn.classList.add('btn-light-theme');
         btn.textContent='Ciemny motyw';
@@ -40,7 +56,9 @@ function changeTheme(e){
     for(i=0; i<area.length; i++){
         area[i].classList.remove('border-black');
         area[i].classList.add('border-white');
-    }  
+    }
+    nxtRound.classList.add('btn-dark-theme');
+    nxtRound.classList.remove('btn-light-theme');  
     btn.classList.remove('btn-light-theme');
     btn.classList.add('btn-dark-theme');
     btn.textContent ='Jasny motyw';
@@ -129,14 +147,14 @@ if(count>=5){
     else if(win[2].textContent != "" && win[2].textContent === win[4].textContent && win[4].textContent === win[6].textContent){
         winF(win[2].textContent);
     }
-    else{
-       if(count>9){
-       tie();
-       }
+    // else{
+    //    if(count>9){
+    //    tie();
+    //    }
         
     }
 }
     
     
     
-}
+

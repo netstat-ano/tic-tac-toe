@@ -42,7 +42,7 @@ body{margin: 0; padding: 0;}
 }
 
 .btn-theme{
-    border-radius: 2em;
+    
     font-size: 1.5em;
     text-align: center;
     cursor: pointer;
@@ -63,4 +63,10 @@ body{margin: 0; padding: 0;}
 .dark-theme{
     background-color: rgb(52, 58, 64);
     color: white;
+}
+.next-round{
+    border-radius: 2em;
+    font-size: 1.5em;
+    text-align: center;
+    cursor: pointer;
 }
