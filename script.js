@@ -71,7 +71,7 @@ gameToggle.addEventListener('click', function (e) {game(e)}, false);
 function winF(whoWin){
     let divWin = document.createElement('div');
     let screen = document.getElementsByClassName('screen');
-    divWin.textContent = "Win " + whoWin;
+    divWin.textContent = whoWin + " has won";
     screen[0].textContent = "";
     screen[0].append(divWin);
     let area = document.querySelectorAll('.area');
