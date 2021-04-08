@@ -8,9 +8,9 @@ let countTheme=0;
 let scoreX = 0;
 let scoreO = 0;
 let xScore = document.querySelector('.x-score');
-xScore.textContent = 'User X: ' + scoreX;
+xScore.textContent = 'Player X: ' + scoreX;
 let oScore = document.querySelector('.o-score');
-oScore.textContent = 'User O: ' + scoreO;
+oScore.textContent = 'Player O: ' + scoreO;
 var screen = document.querySelector('.screen');
 screen.textContent = xo[random];
 let darkThemeButton = document.querySelector('.btn-theme');
@@ -45,7 +45,7 @@ function changeTheme(e){
         nxtRound.classList.add('btn-light-theme');
         btn.classList.remove('btn-dark-theme');
         btn.classList.add('btn-light-theme');
-        btn.textContent='Ciemny motyw';
+        btn.textContent='Dark theme';
         body[0].classList.remove('dark-theme');
         for(i=0; i<area.length; i++){
             area[i].classList.remove('border-white');
@@ -61,7 +61,7 @@ function changeTheme(e){
     nxtRound.classList.remove('btn-light-theme');  
     btn.classList.remove('btn-light-theme');
     btn.classList.add('btn-dark-theme');
-    btn.textContent ='Jasny motyw';
+    btn.textContent ='Light theme';
     
     body[0].classList.add('dark-theme');
     }
@@ -71,22 +71,27 @@ gameToggle.addEventListener('click', function (e) {game(e)}, false);
 function winF(whoWin){
     let divWin = document.createElement('div');
     let screen = document.getElementsByClassName('screen');
-    divWin.textContent = "Wygrał " + whoWin;
+    divWin.textContent = "Win " + whoWin;
     screen[0].textContent = "";
     screen[0].append(divWin);
+    let area = document.querySelectorAll('.area');
+    for(var i =0; i<area.length; i++){
+        area[i].classList.remove('completed');
+        area[i].classList.add('completed');
+    }
     if(whoWin ==='X'){
         scoreX+=10;
         
-        xScore.textContent = 'User X: ' + scoreX;
-        oScore.textContent = 'User O: ' + scoreO;
+        xScore.textContent = 'Player X: ' + scoreX;
+        oScore.textContent = 'Player O: ' + scoreO;
 
         
     }
     else if(whoWin==='O'){
         scoreO+=10;
         
-        oScore.textContent = 'User O: ' + scoreO;
-        xScore.textContent = 'User X: ' + scoreX;
+        oScore.textContent = 'Player O: ' + scoreO;
+        xScore.textContent = 'Player X: ' + scoreX;
     }
 }
 function game(e){
