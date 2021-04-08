@@ -76,15 +76,15 @@ function winF(whoWin){
     screen[0].append(divWin);
     if(whoWin ==='X'){
         scoreX+=10;
-        scoreO-=10;
+        
         xScore.textContent = 'User X: ' + scoreX;
-        oScore.textContent = 'User O: ' + scoreO
+        oScore.textContent = 'User O: ' + scoreO;
 
         
     }
     else if(whoWin==='O'){
         scoreO+=10;
-        scoreX-=10;
+        
         oScore.textContent = 'User O: ' + scoreO;
         xScore.textContent = 'User X: ' + scoreX;
     }
