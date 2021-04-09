@@ -18,7 +18,7 @@ darkThemeButton.addEventListener('click', function(e){changeTheme(e)}, false);
 function tie(){
     let divWin = document.createElement('div');
     let screen = document.getElementsByClassName('screen');
-    divWin.textContent = "Remis";
+    divWin.textContent = "Draw";
     screen[0].textContent = "";
     screen[0].append(divWin);
 }
