@@ -15,13 +15,13 @@ var screen = document.querySelector('.screen');
 screen.textContent = xo[random];
 let darkThemeButton = document.querySelector('.btn-theme');
 darkThemeButton.addEventListener('click', function(e){changeTheme(e)}, false);
-// function tie(){
-//     let divWin = document.createElement('div');
-//     let screen = document.getElementsByClassName('screen');
-//     divWin.textContent = "Remis";
-//     screen[0].textContent = "";
-//     screen[0].append(divWin);
-// }
+function tie(){
+    let divWin = document.createElement('div');
+    let screen = document.getElementsByClassName('screen');
+    divWin.textContent = "Remis";
+    screen[0].textContent = "";
+    screen[0].append(divWin);
+}
 let nextRound = document.querySelector('.next-round');
 nextRound.addEventListener('click', nextRoundFunction, false);
 function nextRoundFunction(){
@@ -152,14 +152,16 @@ if(count>=5){
     else if(win[2].textContent != "" && win[2].textContent === win[4].textContent && win[4].textContent === win[6].textContent){
         winF(win[2].textContent);
     }
-    // else{
-    //    if(count>9){
-    //    tie();
-    //    }
+    else{
+        let completed = document.querySelectorAll('.completed');
+        
+       if(completed.length===9){
+       tie();
+       }
         
     }
 }
-    
+}
     
     
 
